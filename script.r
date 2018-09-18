@@ -17,11 +17,11 @@ combo <- merge(top_twentyfive, doe_data, all=TRUE)
 
 g = plot_ly() %>%
      add_trace(data = top_twentyfive, x = ~ScholarlyOutput, y = ~FWCI, type = 'scatter', mode=
-     'markers', hoverinfo = 'text', text = ~paste('Institution: ', Institution, '\nScholary Output: ', ScholarlyOutput, '\nFWCI: ', FWCI, '\nCountry: ', Country), name = 'Top 25', marker=list(size = 20, opacity = 0.5, color = ~as.character(Colors))) %>% 
+     'markers', hoverinfo = 'text', text = ~paste('Institution: ', Institution, '\nScholarly Output: ', ScholarlyOutput, '\nFWCI: ', FWCI, '\nCountry: ', Country), name = 'Top 25', marker=list(size = 20, opacity = 0.5, color = ~as.character(Colors))) %>% 
 	 
-     add_trace(data = doe_data, x = ~ScholarlyOutput, y = ~FWCI, type = 'scatter', mode= 'markers', hoverinfo= 'text', text = ~paste('Institution: ', Institution, '\nScholary Output: ', ScholarlyOutput, '\nFWCI: ', FWCI), name = 'DOE Labs', marker = list(size=10, opacity = 0.5, color = 'green')) %>%
+     add_trace(data = doe_data, x = ~ScholarlyOutput, y = ~FWCI, type = 'scatter', mode= 'markers', hoverinfo= 'text', text = ~paste('Institution: ', Institution, '\nScholarly Output: ', ScholarlyOutput, '\nFWCI: ', FWCI), name = 'DOE Labs', marker = list(size=10, opacity = 0.5, color = 'green')) %>%
 	 
-     add_trace(data = top_twentyfive, type = 'bar', visible = "legendonly", showlegend = TRUE, x = ~ScholarlyOutput, y = ~FWCI, color = ~Country, colors = list(~as.character(Colors))) %>%
+     #add_trace(data = top_twentyfive, type = 'bar', visible = "legendonly", showlegend = TRUE, x = ~ScholarlyOutput, y = ~FWCI, color = ~Country, colors = list(~as.character(Colors))) %>%
 	 
      add_annotations(data = combo, x = ~ScholarlyOutput, y = ~FWCI, xref = 'x', yref = 'y', xanchor = 'right', yanchor = 'bottom', text = ~Abbreviation, showarrow = FALSE, clicktoshow = 'onoff')  %>%
 	 
